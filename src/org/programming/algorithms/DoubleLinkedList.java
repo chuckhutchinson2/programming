@@ -1,18 +1,18 @@
 package org.programming.algorithms;
 
 public class DoubleLinkedList<D> {
-	
+
 	private Node<D> start;
 	private Node<D> end;
 	private int size;
-	
+
 	public DoubleLinkedList() {
-		
+
 	}
-	
+
 	public void add(D data) {
 		Node<D> node = new Node<D>(data);
-		
+
 		if (start == null) {
 			start = node;
 			end = start;
@@ -23,32 +23,63 @@ public class DoubleLinkedList<D> {
 		}
 		size++;
 	}
-	
-	
+
 	public Node<D> getStart() {
 		return start;
 	}
-	
+
 	public void setStart(Node<D> start) {
 		this.start = start;
 	}
-	
+
 	public Node<D> getEnd() {
 		return end;
 	}
-	
+
 	public void setEnd(Node<D> end) {
 		this.end = end;
 	}
-	
+
 	public int getSize() {
 		return size;
 	}
-	
+
 	public void setSize(int size) {
 		this.size = size;
 	}
-	
-	
 
+	public void delete(D value) {
+
+		Node<D> node = start;
+
+		if (value == start.getData()) {
+			setStart(start.getNextNode());
+			start.setPreviousNode(null);
+			setSize(getSize() - 1);
+		} else {
+			Node<D> previousNode = node;
+
+			node = node.getNextNode();
+
+			while (node != null) {
+				System.out.println(value + " == " + node.getData());
+
+				if (value == node.getData()) {
+					previousNode.setNextNode(node.getNextNode());
+
+					Node<D> nextNode = node.getNextNode();
+
+					if (nextNode != null) {
+						nextNode.setPreviousNode(previousNode);
+					}
+
+					setSize(getSize() - 1);
+					break;
+				}
+
+				previousNode = node;
+				node = node.getNextNode();
+			}
+		}
+	}
 }
