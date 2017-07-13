@@ -47,8 +47,20 @@ public class DoubleLinkedList<D> {
 	public void setSize(int size) {
 		this.size = size;
 	}
+	
+	public int delete(D value) {
+		
+		int count = deleteImp(value) ? 1 : 0;
+		
+		while (deleteImp(value)) {
+			count++;
+		}
+		
+		return count;
+		
+	}
 
-	public void delete(D value) {
+	public boolean deleteImp(D value) {
 
 		Node<D> node = start;
 
@@ -56,6 +68,8 @@ public class DoubleLinkedList<D> {
 			setStart(start.getNextNode());
 			start.setPreviousNode(null);
 			setSize(getSize() - 1);
+
+			return true;
 		} else {
 			Node<D> previousNode = node;
 
@@ -74,12 +88,15 @@ public class DoubleLinkedList<D> {
 					}
 
 					setSize(getSize() - 1);
-					break;
+
+					return true;
 				}
 
 				previousNode = node;
 				node = node.getNextNode();
 			}
 		}
+
+		return false;
 	}
 }
