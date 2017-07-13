@@ -49,9 +49,6 @@ public class DoubleLinkedListTest {
 		DoubleLinkedList<String> list = new DoubleLinkedList<String>();
 		
 		list.add("a");
-		
-		assertEquals(1, list.getSize());
-		
 		list.add("ab");
 		
 		assertEquals(2, list.getSize());
@@ -63,8 +60,23 @@ public class DoubleLinkedListTest {
 		printList(list.getStart());
 	}
 
+	@Test
+	public void testDeleteInList() {
+		DoubleLinkedList<String> list = new DoubleLinkedList<String>();
+		
+		list.add("a");
+		list.add("ab");
+		list.add("abc");
+		
+		assertEquals(3, list.getSize());
 
+		list.delete("ab");
+		assertEquals(2, list.getSize());
+
+		printList(list.getStart());
+	}
 	private void printList(Node<String> node) {
+		System.out.println("----------------");
 		while(node != null) {
 			System.out.println(node.getData());
 			node = node.getNextNode();
