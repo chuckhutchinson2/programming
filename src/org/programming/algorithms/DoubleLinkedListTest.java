@@ -23,6 +23,7 @@ public class DoubleLinkedListTest {
 		assertEquals(3, list.getSize());
 
 		printList(list.getStart());
+		printReverseList(list.getEnd());
 	}
 
 	@Test
@@ -104,4 +105,11 @@ public class DoubleLinkedListTest {
 		}
 	}
 
+	private void printReverseList(Node<String> node) {
+		System.out.println("----------------");
+		while(node != null) {
+			System.out.println(node.getData());
+			node = node.getPreviousNode();
+		}
+	}
 }
