@@ -1,4 +1,4 @@
-package org.programming.algorithms;
+package org.programming.algorithms.list;
 
 public class DoubleLinkedList<D> {
 

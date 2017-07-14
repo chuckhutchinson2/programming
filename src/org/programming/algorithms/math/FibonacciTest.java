@@ -1,4 +1,4 @@
-package org.programming.algorithms;
+package org.programming.algorithms.math;
 
 import static org.junit.Assert.*;
 
