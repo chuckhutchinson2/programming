@@ -65,9 +65,9 @@ public class TreeTest {
 	}
 
 	private void printTree(TreeNode<Integer, String> tree) {
-		Visitor<Integer, String> v = new PreorderVisitor<Integer,String>(new Logic<Integer, String>() {
+		Visitor<Integer, String> v = new PreorderVisitor<Integer,String>(new VisitorProcessor<Integer, String>() {
 			@Override
-			public void execute(TreeNode<Integer, String> treeNode) {
+			public void process(TreeNode<Integer, String> treeNode) {
 				System.out.println(treeNode.getKey() + " " + treeNode.getData());
 			}
 		});

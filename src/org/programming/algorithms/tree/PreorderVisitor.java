@@ -2,9 +2,9 @@ package org.programming.algorithms.tree;
 
 public class PreorderVisitor<K, D> implements Visitor<K, D> {
 
-	private Logic<K, D> logic;
+	private VisitorProcessor<K, D> logic;
 
-	public PreorderVisitor (Logic<K, D> logic) {
+	public PreorderVisitor (VisitorProcessor<K, D> logic) {
 		
 		this.logic = logic;
 		
@@ -16,7 +16,7 @@ public class PreorderVisitor<K, D> implements Visitor<K, D> {
 			treeNode.getLeft().accept(this);
 		}
 		
-		logic.execute(treeNode);
+		logic.process(treeNode);
 		
 		if (treeNode.getRight() != null) {
 			treeNode.getRight().accept(this);
