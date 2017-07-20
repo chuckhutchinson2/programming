@@ -1,11 +1,14 @@
 package org.programming.algorithms.tree;
 
+import java.util.Comparator;
+
 public class TreeNode<K,D> {
 	private K key;
 	private D data;
 	private TreeNode<K,D> left;
 	private TreeNode<K,D> right;
-	public TreeNode(K key, D data) {
+	
+	private TreeNode(K key, D data) {
 		this.key = key;
 		this.data = data;
 	}
@@ -38,4 +41,22 @@ public class TreeNode<K,D> {
 		v.visit(this);
 	}
 
+	static <K, D> TreeNode<K, D> create(K key, D data, Comparator<K> comparator) {
+		return insert(null, key, data, comparator);
+	}
+	
+	static <D, K> TreeNode<K, D> insert(TreeNode<K, D> tree, K key, D data, Comparator<K> comparator) {
+		
+		if (tree == null) {
+			return new TreeNode<K,D >(key, data);
+		}
+		
+		if (comparator.compare(key, tree.getKey()) < 0) {
+			tree.setLeft(insert(tree.getLeft(), key, data, comparator));
+		} else {
+			tree.setRight(insert(tree.getRight(), key, data, comparator));
+		}
+		
+		return tree;
+	}
 }
