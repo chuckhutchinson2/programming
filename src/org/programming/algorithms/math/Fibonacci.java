@@ -14,7 +14,8 @@ public class Fibonacci {
 	
 	// non recursive solution using a vector to keep track of the previous terms
 	// problem is the amount of memory this solution uses
-	// complexity O(n)
+	// time complexity O(n)
+	// space complexity O(n)
 	static public long fibonacci2(long num) {
 
 		long[] numbers = new long[(int)num+2];
@@ -34,6 +35,7 @@ public class Fibonacci {
 	// non recursive solution the keeps track of the last two fibonacci numbers and uses them
 	// to calculate the next one.
 	// complexity O(n)
+	// space complexity O(1)
 	static public long fibonacci3(long num) {
 		if (num < 2) {
 			return num;
