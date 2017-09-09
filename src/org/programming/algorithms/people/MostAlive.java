@@ -53,7 +53,7 @@ public class MostAlive {
 		int[] populationCountByYears = new int[maxYear - minYear + 1];
 		
 		for (int i = 0; i < people.length; i++) {
-			for (int j = people[i].getBirthYear(); j < people[i].getDeathYear(); j++) {
+			for (int j = people[i].getBirthYear(); j <= people[i].getDeathYear(); j++) {
 				populationCountByYears[j - minYear]++;
 			}
 		}
