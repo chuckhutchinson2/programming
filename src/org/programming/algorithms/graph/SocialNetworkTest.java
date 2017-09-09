@@ -1,7 +1,5 @@
 package org.programming.algorithms.graph;
 
-import static org.junit.Assert.*;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
@@ -23,19 +21,10 @@ public class SocialNetworkTest {
 		socialNetwork.add(createNetwork("f", Arrays.asList("i")));
 		socialNetwork.add(createNetwork("i", Arrays.asList("c", "e", "f")));
 		socialNetwork.add(createNetwork("j", Arrays.asList("c")));
-		
-		@SuppressWarnings("unused")
-		Set<PersonalNetwork> networks = socialNetwork.buildGraph();
-		
-		
-		socialNetwork.walkGraph();
 
-		
+		socialNetwork.walkGraph();	
 	}
-	
-	private PersonalNetwork createNetwork(String person) {
-		return createNetwork(person, Arrays.asList());
-	}
+
 
 	public PersonalNetwork createNetwork(String person, List<String> friends) {
 		PersonalNetwork network = new PersonalNetwork();

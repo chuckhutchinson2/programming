@@ -1,10 +1,7 @@
 package org.programming.algorithms.graph;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -32,7 +29,8 @@ public class SocialNetwork {
 			}
 			
 			visited.add(n);
-			for (int i = 0; i < depth; i++) System.out.print("\t");
+			
+			for (int i = 0; i < depth - 1; i++) System.out.print("\t");
 			
 			System.out.println(depth + ": " + n.getPerson());
 			
